@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suburban Population Growth Visualization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <style>
+        /* Use Flexbox to arrange map and controls */
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+        }
+
+        /* Map should grow to fill remaining space */
+        #map {
+            flex-grow: 1; /* Takes up the remaining space */
+            width: 100%;
+        }
+
+        /* Controls at the bottom */
+        #controls {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            background-color: #c2c2c2; /* Your desired background color */
+            margin: 0; /* Remove any margins */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow effect. i dont think this is doing anything? */
+        }
+
+        /* Responsive controls */
+        input[type="range"] {
+            width: 150px;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 768px) {
+            input[type="range"] {
+                width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            input[type="range"] {
+                width: 100px;
+            }
+
+            #controls {
+                padding: 10px;
+                font-size: 12px;
+            }
+        }
+
+        /* Styling for description with transparency */
+        .description {
+            text-align: center;
+            padding: 10px;
+            background-color: #c2c2c2;
+            font-size: 16px;
+            line-height: .5;
+            margin: 0;
+            border: none; /* for if i want to add one later */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            z-index: 10; /* Ensure it stays above the map */
+        }
+
+        .description h2 {
+            margin: 10px 0 5px 0; /* Reduce margin for the heading */
+            
+        }
+
+        /* Footer styling with shadow */
+        footer {
+            text-align: center;
+            padding: 5px; /* Reduced padding */
+            font-size: 14px;
+            background-color: #c2c2c2;
+            border-top: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow effect */
+            margin: 0; /* Remove margins to avoid extra white space */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Description Section Moved to the Top -->
+    <div class="description">
+        <h2>Suburban Population Growth from 1995 to 2024</h2>
+        <p>
+            Explore the population growth of major U.S. suburbs over the years. 
+            Use the time slider below to view population changes between 1995 and 2024. 
+            Click on the circles representing suburbs to see detailed population data for each year.
+        </p>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="controls">
+        <label for="timeSlider">Select Time:</label>
+        <input type="range" id="timeSlider" min="0" max="6" value="0">
+        <span id="timeDisplay">Timestamp: 2024</span>
+    </div>
+
+    <!-- Footer Section for Data Source -->
+    <footer>
+        <p>Data Sources: U.S. Census Bureau, City Population Archives</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="main.js"></script> <!-- Link to your main.js file -->
+</body>
+</html>

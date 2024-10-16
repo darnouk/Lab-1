@@ -1,0 +1,38 @@
+/* Ensure the map and controls are styled properly for smooth display */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* The map takes up the entire width of the screen and a specified height */
+#mapContainer {
+    height: 80vh;
+    width: 100%;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+/* Controls for the time slider */
+#controls {
+    padding: 10px;
+    background: white;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid #ddd;
+}
+
+input[type="range"] {
+    width: 300px;
+}
